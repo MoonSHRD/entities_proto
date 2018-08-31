@@ -7,6 +7,11 @@ message Identity {
 
 }
 
+message CreateChannelTx {
+    string address_signed = 1;
+    string pub_key = 2;
+}
+
 message MapEntry {
     string key = 1;
     string value = 2;
@@ -28,17 +33,28 @@ message NewChannelPostTx {
 }
 
 message SubscribeIdentittyTx {
-    int32 statt= 1;
-    bytes conversation_pub_key=2;
-    string encrypted_message =3;
+    int32 statt = 1;
+    bytes conversation_pub_key = 2;
+    string encrypted_message = 3;
 }
 
 
 message SubscribeChannelTx {
-    int32 deposit= 1;
-    bytes subscription_pub_key=2;
+    int32 deposit = 1;
+    bytes subscription_pub_key = 2;
 }
 
+
+message Null {
+}
+
+
+message WrapStr {
+    string value = 1;
+}
+message WrapInt {
+    int64 value = 1;
+}
 
 
 

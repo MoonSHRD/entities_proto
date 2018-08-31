@@ -1,4 +1,4 @@
-PROTOC = protoc --plugin=./protoc-gen-gogo -Isrc -I/usr/local/include
+PROTOC = protoc --plugin=./protoc-gen-gogo -Itypes -I/usr/local/include
 PROTOBUF_VERSION = 3.5.1
 UNAME_S := $(shell uname -s)
 CURRENT_DIRECTORY = $(shell pwd)
@@ -15,28 +15,20 @@ export GOPATH=$(CURRENT_DIRECTORY)/tmpgopath:$(CURRENT_DIRECTORY)
 
 .PHONY: all clean deps proto build
 
-
+all: proto
 
 dirs:
 	mkdir build
-
-build:
-	npm run proto
-
 
 protoc-gen-gogo:
 	go build github.com/gogo/protobuf/protoc-gen-gogo
 
 
-
 %.pb.go: %.proto protoc-gen-gogo
-	$(PROTOC) --gogo_out=src $<
+	$(PROTOC) --gogo_out=types $<
 
-proto: src/entities.proto src/entities.pb.go
+proto: types/types.proto types/types.pb.go
 	npm run proto
-
-test: proto
-	go test $(PKG)/...
 
 
 deps:

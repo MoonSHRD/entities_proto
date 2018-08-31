@@ -1,5 +1,5 @@
 // package: 
-// file: src/entities.proto
+// file: types/types.proto
 
 import * as jspb from "google-protobuf";
 
@@ -28,6 +28,30 @@ export namespace Identity {
     firstName: string,
     lastName: string,
     username: string,
+  }
+}
+
+export class CreateChannelTx extends jspb.Message {
+  getAddressSigned(): string;
+  setAddressSigned(value: string): void;
+
+  getPubKey(): string;
+  setPubKey(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CreateChannelTx.AsObject;
+  static toObject(includeInstance: boolean, msg: CreateChannelTx): CreateChannelTx.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CreateChannelTx, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CreateChannelTx;
+  static deserializeBinaryFromReader(message: CreateChannelTx, reader: jspb.BinaryReader): CreateChannelTx;
+}
+
+export namespace CreateChannelTx {
+  export type AsObject = {
+    addressSigned: string,
+    pubKey: string,
   }
 }
 
@@ -174,6 +198,62 @@ export namespace SubscribeChannelTx {
   export type AsObject = {
     deposit: number,
     subscriptionPubKey: Uint8Array | string,
+  }
+}
+
+export class Null extends jspb.Message {
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Null.AsObject;
+  static toObject(includeInstance: boolean, msg: Null): Null.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Null, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Null;
+  static deserializeBinaryFromReader(message: Null, reader: jspb.BinaryReader): Null;
+}
+
+export namespace Null {
+  export type AsObject = {
+  }
+}
+
+export class WrapStr extends jspb.Message {
+  getValue(): string;
+  setValue(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): WrapStr.AsObject;
+  static toObject(includeInstance: boolean, msg: WrapStr): WrapStr.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: WrapStr, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): WrapStr;
+  static deserializeBinaryFromReader(message: WrapStr, reader: jspb.BinaryReader): WrapStr;
+}
+
+export namespace WrapStr {
+  export type AsObject = {
+    value: string,
+  }
+}
+
+export class WrapInt extends jspb.Message {
+  getValue(): number;
+  setValue(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): WrapInt.AsObject;
+  static toObject(includeInstance: boolean, msg: WrapInt): WrapInt.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: WrapInt, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): WrapInt;
+  static deserializeBinaryFromReader(message: WrapInt, reader: jspb.BinaryReader): WrapInt;
+}
+
+export namespace WrapInt {
+  export type AsObject = {
+    value: number,
   }
 }
 
